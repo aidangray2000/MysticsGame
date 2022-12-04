@@ -1,1 +1,99 @@
-<!-- test -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Mystics Spades</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="The Mystics">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="spades.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <header id="header">
+    <h1><strong>The Mystics Spades</strong></h1>
+    </header>
+
+<main>
+  <!-- computer player dive-->
+
+  <div id="computerPlayer">
+    <p> <strong>Computer Player </strong> </p>
+    <img id="computerPicture" src="images/robot.png" alt="computer player picture" 
+    class="center" ></img>
+  </div>
+
+  <div id="gamePlay">
+    <p>where cards played by computer and humans will go</p>
+  </div>
+
+  <!-- human player-->
+  
+  <div id="humanPlayer">
+    <p> <strong> You </strong> <p></p>
+    <img id="humanPicture" src="images/human.png" alt="human player picture" 
+    class="center" ></img>
+     <!-- dropdown to select card-->
+    <!-- TO DO: SHUFFLE CARDS AND PRINT IT IN THE DROPBOX-->
+    <div id="playerHand"> 
+        <p>
+            <label for="playerHandDropdown">Choose a card to play</label>
+            <select id="playerHandDropdown">
+                <option value = "aceofSpades" selected>Ace of Spades</option>
+                <option value = "threeHearts">Three of Hearts</option>
+              </select>
+        </p>
+    </div> <!-- ends dropdown div-->
+  </div> <!-- ends human player div-->
+
+    <!-- check trick -->
+    <div id="checkButton">
+    <button type="button" class="button">Check Trick!</button>
+    </div>
+
+   
+
+
+</main>
+
+<!--A sidebar (aside) that has score and instructions-->   
+<aside>
+    <h2>Score Board</h2>
+    <div id="scores"></div>
+    <p> Computer Score</p>
+	<div id="computerScore">
+    </div>
+    <p> Your Score</p>
+    <div id="humanScore">
+    </div>
+    </div>
+
+    <div id="rules">
+    <h2>Rules: </h2>
+    <ul>
+        <li> Each player is dealt 13 cards</li>
+        <li> Computer/Human starts first</li>
+        <li> Lead with any card except Spades </li>
+        <li> Win the play by playing the highest card of the suit led </li>
+        <li> Ace is highest, 2 is lowest </li>
+        <li> Spades win any trick except when only Spades are played, then the highest Spade wins</li>
+        <li> Spades can only be used if you don't have cards that match the current play or only have Spades in your hand </li>
+        <li> Each trick won is worth 10 points</li>
+        <li> Who ever wins the most points wins the game</li>
+      </ul>
+    </div>
+
+</aside>
+
+<footer id="footer">
+<p> Created by The Mystics</p>
+<p> Sources</p>
+<a target="_blank" href="https://icons8.com">Icons</a>
+<a target="_blank" href="https://cardgames.io/spades/#rules">Rules</a>
+
+</footer>
+
+
+<script src="spades.js"></script>
+</body>
+</html>
