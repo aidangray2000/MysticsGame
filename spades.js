@@ -124,11 +124,8 @@ for (let i = deck.length - 1; i > 0; i--) {
 }
 
 
-// display 5 results
-for (let i = 0; i < 5; i++) {
-    alert(`${deck[i].Value} of ${deck[i].Suit}`)
-}
 
+// deal cards
 for(let i = 0; i < 26; i++) {
     if(i < 13) {
         human_hand.push(deck[i]);
