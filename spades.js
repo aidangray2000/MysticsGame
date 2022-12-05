@@ -134,8 +134,13 @@ for(let i = 0; i < 26; i++) {
     }
 }
 
+var select = document.getElementById("playerHandDropdown");
 
+var btn = document.getElementById("btn");
 
+btn.addEventListener("click", function() {
+
+});
 
 
 
