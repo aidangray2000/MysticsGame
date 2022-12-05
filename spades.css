@@ -1,5 +1,5 @@
   /* grid codes */
-body {
+  body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 10vw 30vw 10vw; 
@@ -70,6 +70,14 @@ body {
   padding: 1em;
   height: 10em;
   margin-right: .5em;
+}
+
+#computerCard {
+	float:left;
+}
+
+#playerCard {
+	float:right;
 }
 
 

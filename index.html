@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="spades.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="spades.js"></script>
 </head>
 
 <body>
@@ -24,7 +25,9 @@
   </div>
 
   <div id="gamePlay">
-    <p>where cards played by computer and humans will go</p>
+    <p id="narrator">where cards played by computer and humans will go</p>
+	<img id="computerCard" width="50" height="60"></img>
+	<img id="humanCard" width="50" height="60"></img>
   </div>
 
   <!-- human player-->
@@ -33,15 +36,19 @@
     <p> <strong> You </strong> <p></p>
     <img id="humanPicture" src="images/human.png" alt="human player picture" 
     class="center" ></img>
-     <!-- dropdown to select card-->
+    <!-- dropdown to select card-->
     <!-- TO DO: SHUFFLE CARDS AND PRINT IT IN THE DROPBOX-->
     <div id="playerHand"> 
         <p>
             <label for="playerHandDropdown">Choose a card to play</label>
-            <select id="playerHandDropdown">
-                <option value = "aceofSpades" selected>Ace of Spades</option>
+            <select id="playerHandDropdown" onchange="player_card()" required>
+				<option value="" disabled selected>--Hand--</option>
+				
+                <option value = "aceofSpades">Ace of Spades</option>
                 <option value = "threeHearts">Three of Hearts</option>
-              </select>
+				<option value = "jackofClubs">Jack of Clubs</option>
+				<option value = "nineofDiamonds">Nine of Diamonds</option>
+            </select>
         </p>
     </div> <!-- ends dropdown div-->
   </div> <!-- ends human player div-->
