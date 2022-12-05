@@ -1,3 +1,6 @@
+let human_hand = []
+let computer_hand = []
+
 function player_card() {
 	const $dropdown = document.querySelector('#playerHandDropdown');
 	display_card($dropdown.value);
@@ -87,19 +90,19 @@ function display_number(card,suite){
 // declare card elements
 const suits = ["Spades", "Diamonds", "Club", "Heart"];
 const values = [
-  "Ace",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "Jack",
-  "Queen",
-  "King",
+  "ace",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "seven",
+  "eight",
+  "nine",
+  "ten",
+  "jack",
+  "queen",
+  "king",
 ];
 
 // empty array to contain cards
@@ -113,13 +116,29 @@ for (let i = 0; i < suits.length; i++) {
     }
 }
 
-function shuffle(deck) {
-    for (let i = deck.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * i);
-        let temp = deck[i];
-        deck[i] = deck[j];
-        deck[j] = temp;
+for (let i = deck.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * i);
+    let temp = deck[i];
+    deck[i] = deck[j];
+    deck[j] = temp;
+}
+
+
+// display 5 results
+for (let i = 0; i < 5; i++) {
+    alert(`${deck[i].Value} of ${deck[i].Suit}`)
+}
+
+for(let i = 0; i < 26; i++) {
+    if(i < 13) {
+        human_hand.push(deck[i]);
+    } else {
+        computer_hand.push(deck[i]);
     }
 }
+
+
+
+
 
 
