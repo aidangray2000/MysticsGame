@@ -27,6 +27,7 @@
     <!-- gample play div-->
   <div id="gamePlay">
     <p id="firstP"> To start, click the 'Deal' button then choose a card to play from the dropdown.</p>
+  <p id="compHandDisplay"> </p>
   <p id="narrator"> </p>
   <div id="dealButton">
     <button id="dealbtn" type="button" class="button" onclick="populateDropdown()">Deal!</button>
@@ -54,13 +55,13 @@
 				<option value = "jackofClubs">Jack of Clubs</option>
 				<option value = "nineofDiamonds">Nine of Diamonds</option> -->
             </select>
-        
+        <button id="confirm" type="button" class="button" onclick="displayCompCard()">see computer card</button>
     </div> <!-- ends dropdown div-->
   </div> <!-- ends human player div-->
 
     <!-- check trick -->
     <div id="checkButton">
-    <button id="btn" type="button" class="button">Check Trick!</button>
+    <button id="btn" type="button" class="button" onclick="gameLogic()">Check Trick!</button>
     </div>
 
    

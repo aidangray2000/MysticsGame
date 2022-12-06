@@ -1,6 +1,10 @@
 let human_hand = []
 let computer_hand = []
-
+let hasSpadesPlayed = false;
+let humanCard;
+let compCard;
+let humanPoints = 0;
+let compPoints = 0;
 // function player_card() {
 // 	const $dropdown = document.querySelector('#playerHandDropdown');
 // 	display_card($dropdown.value);
@@ -104,6 +108,21 @@ const values = [
   "Queen",
   "King",
 ];
+const valuesNum = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+];
 
 // empty array to contain cards
 let deck = [];
@@ -111,7 +130,7 @@ let deck = [];
 // create a deck of cards
 for (let i = 0; i < suits.length; i++) {
     for (let x = 0; x < values.length; x++) {
-        let card = { value: values[x], suit: suits[i] };
+        let card = { value: values[x], suit: suits[i], num: valuesNum[x]};
         deck.push(card);
     }
 }
@@ -159,6 +178,15 @@ function populateDropdown(){
 }
 
 
+function getComputerCard(value, suit) {
+    for(let i = 0; i < 13; i++) {
+        if(computer_hand[i].suit == suit) {
+            return i;
+        }
+    }
+    return 0;
+}
+
 //shows card played by human after human chooses card from dropdown
 function change_pic() {
 	selectElement = document.querySelector('#playerHandDropdown');
@@ -166,7 +194,29 @@ function change_pic() {
 	console.log(output);
 	//change narrator text
 	const $p = document.querySelector("#narrator");
+    humanCard = human_hand[output];
 	$p.innerHTML="You played the " + human_hand[output].value + " of "  + human_hand[output].suit;
+}
 
 
+function displayCompCard() {
+    const $c = document.querySelector("#compHandDisplay");
+    let index = getComputerCard(human_hand[output].value, human_hand[output].suit);
+    compCard = computer_hand[index];
+    $c.innerHTML="The Computer played the " + computer_hand[index].value + " of "  + computer_hand[index].suit;
+    document.querySelector("#playerHandDropdown").disabled = true;
+}
+
+function gameLogic() {
+    if(compCard.suit != humanCard.suit) {
+        humanPoints += 10;
+    } else {
+        if(compCard.num > humanCard.num) {
+            compPoints += 10;
+        } else {
+            humanPoints += 10;
+        }
+    }
+    document.querySelector("#computerScore").innerHTML = compPoints;
+    document.querySelector("#humanScore").innerHTML = humanPoints;
 }
