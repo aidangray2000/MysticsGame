@@ -1,10 +1,10 @@
 let human_hand = []
 let computer_hand = []
 
-function player_card() {
-	const $dropdown = document.querySelector('#playerHandDropdown');
-	display_card($dropdown.value);
-}
+// function player_card() {
+// 	const $dropdown = document.querySelector('#playerHandDropdown');
+// 	display_card($dropdown.value);
+// }
 
 //this should be able to be expanded to print for the computer as well
 function display_card(card) {
@@ -143,15 +143,30 @@ for(let i = 0; i < 26; i++) {
 // });
 
 
-
+//populates human card dropdown after deal button is clicked
 function populateDropdown(){
 	//show human player cards
     var $myDD = $("#playerHandDropdown");
     for (var i = 0; i<human_hand.length; i++){
-	let value = human_hand[i].value+human_hand[i].suit;
-    $myDD.append("<option value='"+ value +"'>"+human_hand[i].value + " of " + human_hand[i].suit + "</option>");   
+	// let value = human_hand[i].value+human_hand[i].suit;
+    $myDD.append("<option value='"+ i +"'>"+human_hand[i].value + " of " + human_hand[i].suit + "</option>");   
     } 
 	
-	//hide button
+	//hide button and first p saying human starts first
 	document.getElementById('dealbtn').style.display = 'none';
+	document.getElementById('firstP').style.display = 'none';
+	document.getElementById('narrator').innerHTML = "Where cards played by computer and humans will go";
+}
+
+
+//shows card played by human after human chooses card from dropdown
+function change_pic() {
+	selectElement = document.querySelector('#playerHandDropdown');
+	output = selectElement.value;
+	console.log(output);
+	//change narrator text
+	const $p = document.querySelector("#narrator");
+	$p.innerHTML="You played the " + human_hand[output].value + " of "  + human_hand[output].suit;
+
+
 }

@@ -24,13 +24,15 @@
     class="center" ></img>
   </div>
 
+    <!-- gample play div-->
   <div id="gamePlay">
-  <p id="narrator">where cards played by computer and humans will go</p>
+    <p id="firstP"> To start, click the 'Deal' button then choose a card to play from the dropdown.</p>
+  <p id="narrator"> </p>
   <div id="dealButton">
     <button id="dealbtn" type="button" class="button" onclick="populateDropdown()">Deal!</button>
   </div>
-	<!-- <img id="computerCard" width="50" height="60"></img>
-	<img id="humanCard" width="50" height="60"></img> -->
+	<img id="computerCard" width="50" height="60"></img>
+	<img id="humanCard" width="50" height="60"></img>
   </div>
 
   <!-- human player-->
@@ -44,7 +46,7 @@
     <div id="playerHand"> 
         <!-- check trick -->
         <label for="playerHandDropdown">Choose a card to play</label>
-        <select id="playerHandDropdown" onchange="player_card()" required>
+        <select id="playerHandDropdown" onchange="change_pic()" required>
 				<option value="" disabled selected>--Hand--</option>
 				
                 <!-- <option value = "aceofSpades">Ace of Spades</option>
@@ -82,7 +84,7 @@
     <h2>Rules: </h2>
     <ul>
         <li> Each player is dealt 13 cards</li>
-        <li> Computer/Human starts first</li>
+        <li> Human starts first</li>
         <li> Lead with any card except Spades </li>
         <li> Win the play by playing the highest card of the suit led </li>
         <li> Ace is highest, 2 is lowest </li>
