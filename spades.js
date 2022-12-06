@@ -197,7 +197,7 @@ function populateDropdown(){
 	document.getElementById('narrator').innerHTML = "Where cards played by computer and humans will go";
 }
 
-
+//gets a card that matches suit if possible
 function getComputerCard(value, suit) {
     for(let i = 0; i < 13; i++) {
         if(computer_hand[i].suit == suit) {
@@ -215,10 +215,14 @@ function change_pic() {
 	//change narrator text
 	const $p = document.querySelector("#narrator");
     humanCard = human_hand[output];
+    if(human_hand[output].suit == "Spades" && !hasSpadesPlayed) {
+        alert("Spades has not been played yet. Please select another suit");
+        return;
+    }
 	$p.innerHTML="You played the " + human_hand[output].value + " of "  + human_hand[output].suit;
 }
 
-
+//displays computer card
 function displayCompCard() {
     const $c = document.querySelector("#compHandDisplay");
     let index = getComputerCard(human_hand[output].value, human_hand[output].suit);
@@ -227,6 +231,7 @@ function displayCompCard() {
     document.querySelector("#playerHandDropdown").disabled = true;
 }
 
+//decides who won the trick and checks to see if scoore threshold has been reached
 function gameLogic() {
     if(compCard.suit != humanCard.suit) {
         humanPoints += 10;
@@ -239,10 +244,29 @@ function gameLogic() {
     }
     document.querySelector("#computerScore").innerHTML = compPoints;
     document.querySelector("#humanScore").innerHTML = humanPoints;
+    if(compPoints >= 100 || humanPoints >= 100) {
+        if(compPoints > humanPoints) {
+            alert("The Computer Has Won");
+        } else {
+            alert("You have beaten the computer");
+        }
+        gameEnd();
+    }
+    handEnd()
+
+
+}
+
+//resets hands and game prior to next hand/turn
+function handEnd() {
     document.querySelector("#playerHandDropdown").disabled = false;
     compCard = null;
     humanCard = null;
     computer_hand = [];
     human_hand = [];
-    
+}
+
+//game end function (hard reset)
+function gameEnd() {
+
 }
