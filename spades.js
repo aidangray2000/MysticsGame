@@ -248,6 +248,20 @@ function gameLogic() {
             humanPoints += 10;
         }
     }
+
+    // this should remove the cards from the hands of the players once the scoring is determined.
+    for(var i = 0; i < computer_hand.length; i++){
+        if(computer_hand[i].value == compCard.value && computer_hand[i].suit == compCard.suit) {
+            computer_hand.splice(i, 1)
+        }
+    }
+
+    for(var i = 0; i < human_hand.length; i++){
+        if(human_hand[i].value == humanCard.value && human_hand[i].suit == humanCard.suit) {
+            human_hand.splice(i, 1)
+        }
+    }
+
     document.querySelector("#computerScore").innerHTML = compPoints;
     document.querySelector("#humanScore").innerHTML = humanPoints;
     if(compPoints >= 100 || humanPoints >= 100) {
