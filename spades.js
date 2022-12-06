@@ -199,16 +199,22 @@ function populateDropdown(){
 
 //gets a card that matches suit if possible
 function getComputerCard(value, suit) {
+    let highest = 0;
+    let index = 0;
     for(let i = 0; i < 13; i++) {
         if(computer_hand[i].suit == suit) {
-            return i;
+            if(highest < computer_hand[i].num) {
+                highest = computer_hand[i].num;
+                index = i;
+            }
         }
     }
-    return 0;
+    return index;
 }
 
 //shows card played by human after human chooses card from dropdown
 function change_pic() {
+    document.querySelector("#confirm").disabled = false;
 	selectElement = document.querySelector('#playerHandDropdown');
 	output = selectElement.value;
 	console.log(output);
