@@ -88,21 +88,21 @@ function display_number(card,suite){
 // program to shuffle the deck of cards
 
 // declare card elements
-const suits = ["Spades", "Diamonds", "Club", "Heart"];
+const suits = ["Spades", "Diamonds", "Clubs", "Hearts"];
 const values = [
-  "ace",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six",
-  "seven",
-  "eight",
-  "nine",
-  "ten",
-  "jack",
-  "queen",
-  "king",
+  "Ace",
+  "Two",
+  "Three",
+  "Four",
+  "Five",
+  "Six",
+  "Seven",
+  "Eight",
+  "Nine",
+  "Ten",
+  "Jack",
+  "Queen",
+  "King",
 ];
 
 // empty array to contain cards
@@ -111,7 +111,7 @@ let deck = [];
 // create a deck of cards
 for (let i = 0; i < suits.length; i++) {
     for (let x = 0; x < values.length; x++) {
-        let card = { Value: values[x], Suit: suits[i] };
+        let card = { value: values[x], suit: suits[i] };
         deck.push(card);
     }
 }
@@ -134,13 +134,24 @@ for(let i = 0; i < 26; i++) {
     }
 }
 
-var select = document.getElementById("playerHandDropdown");
+// var select = document.getElementById("playerHandDropdown");
 
-var btn = document.getElementById("btn");
+// var btn = document.getElementById("btn");
 
-btn.addEventListener("click", function() {
+// btn.addEventListener("click", function() {
 
-});
+// });
 
 
 
+function populateDropdown(){
+	//show human player cards
+    var $myDD = $("#playerHandDropdown");
+    for (var i = 0; i<human_hand.length; i++){
+	let value = human_hand[i].value+human_hand[i].suit;
+    $myDD.append("<option value='"+ value +"'>"+human_hand[i].value + " of " + human_hand[i].suit + "</option>");   
+    } 
+	
+	//hide button
+	document.getElementById('dealbtn').style.display = 'none';
+}

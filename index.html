@@ -25,9 +25,12 @@
   </div>
 
   <div id="gamePlay">
-    <p id="narrator">where cards played by computer and humans will go</p>
-	<img id="computerCard" width="50" height="60"></img>
-	<img id="humanCard" width="50" height="60"></img>
+  <p id="narrator">where cards played by computer and humans will go</p>
+  <div id="dealButton">
+    <button id="dealbtn" type="button" class="button" onclick="populateDropdown()">Deal!</button>
+  </div>
+	<!-- <img id="computerCard" width="50" height="60"></img>
+	<img id="humanCard" width="50" height="60"></img> -->
   </div>
 
   <!-- human player-->
@@ -39,9 +42,9 @@
     <!-- dropdown to select card-->
     <!-- TO DO: SHUFFLE CARDS AND PRINT IT IN THE DROPBOX-->
     <div id="playerHand"> 
-        <p>
-            <label for="playerHandDropdown">Choose a card to play</label>
-            <select id="playerHandDropdown" onchange="player_card()" required>
+        <!-- check trick -->
+        <label for="playerHandDropdown">Choose a card to play</label>
+        <select id="playerHandDropdown" onchange="player_card()" required>
 				<option value="" disabled selected>--Hand--</option>
 				
                 <!-- <option value = "aceofSpades">Ace of Spades</option>
@@ -49,7 +52,7 @@
 				<option value = "jackofClubs">Jack of Clubs</option>
 				<option value = "nineofDiamonds">Nine of Diamonds</option> -->
             </select>
-        </p>
+        
     </div> <!-- ends dropdown div-->
   </div> <!-- ends human player div-->
 
