@@ -186,6 +186,9 @@ function shuffle() {
 function populateDropdown(){
 	//show human player cards
     var $myDD = $("#playerHandDropdown");
+    
+    $myDD.empty()
+
     for (var i = 0; i<human_hand.length; i++){
 	// let value = human_hand[i].value+human_hand[i].suit;
     $myDD.append("<option value='"+ i +"'>"+human_hand[i].value + " of " + human_hand[i].suit + "</option>");   
@@ -261,6 +264,8 @@ function gameLogic() {
             human_hand.splice(i, 1)
         }
     }
+
+    populateDropdown()
 
     document.querySelector("#computerScore").innerHTML = compPoints;
     document.querySelector("#humanScore").innerHTML = humanPoints;
