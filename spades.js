@@ -94,7 +94,6 @@ function display_number(card,suite){
 // declare card elements
 const suits = ["Spades", "Diamonds", "Clubs", "Hearts"];
 const values = [
-  "Ace",
   "Two",
   "Three",
   "Four",
@@ -107,6 +106,7 @@ const values = [
   "Jack",
   "Queen",
   "King",
+  "Ace",
 ];
 const valuesNum = [
     1,
