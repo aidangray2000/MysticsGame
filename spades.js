@@ -153,6 +153,26 @@ for(let i = 0; i < 26; i++) {
     }
 }
 
+
+function shuffle() {
+    for (let i = deck.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * i);
+        let temp = deck[i];
+        deck[i] = deck[j];
+        deck[j] = temp;
+    }
+    
+    
+    
+    // deal cards
+    for(let i = 0; i < 26; i++) {
+        if(i < 13) {
+            human_hand.push(deck[i]);
+        } else {
+            computer_hand.push(deck[i]);
+        }
+    }
+}
 // var select = document.getElementById("playerHandDropdown");
 
 // var btn = document.getElementById("btn");
@@ -219,4 +239,10 @@ function gameLogic() {
     }
     document.querySelector("#computerScore").innerHTML = compPoints;
     document.querySelector("#humanScore").innerHTML = humanPoints;
+    document.querySelector("#playerHandDropdown").disabled = false;
+    compCard = null;
+    humanCard = null;
+    computer_hand = [];
+    human_hand = [];
+    
 }
