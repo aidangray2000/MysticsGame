@@ -290,6 +290,10 @@ function gameLogic() {
         gameEnd();
     }
     handEnd()
+    if(human_hand.length == 0) {
+        shuffle();
+        populateDropdown();
+    }
 }
 
 //resets hands and game prior to next hand/turn
