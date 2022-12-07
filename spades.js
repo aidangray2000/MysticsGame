@@ -278,8 +278,6 @@ function gameLogic() {
         gameEnd();
     }
     handEnd()
-
-
 }
 
 //resets hands and game prior to next hand/turn
@@ -287,8 +285,8 @@ function handEnd() {
     document.querySelector("#playerHandDropdown").disabled = false;
     compCard = null;
     humanCard = null;
-    computer_hand = [];
-    human_hand = [];
+    document.getElementById('compHandDisplay').style.display = 'none';
+	document.getElementById('narrator').style.display = 'none';
 }
 
 //game end function (hard reset)
