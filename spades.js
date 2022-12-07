@@ -224,7 +224,17 @@ function change_pic() {
 	//change narrator text
 	const $p = document.querySelector("#narrator");
     humanCard = human_hand[output];
-    if(human_hand[output].suit == "Spades" && !hasSpadesPlayed) {
+    let anyCardNotSpade = true;
+    let totalCards = 0;
+    for(let i = 0; i < human_hand.length; i++) {
+        if(human_hand[i].suit != "Spades") {
+            totalCards+=1;
+        }
+    }
+    if(totalCards == 0) {
+        anyCardNotSpade = false; 
+    }
+    if(human_hand[output].suit == "Spades" && !hasSpadesPlayed && anyCardNotSpade) {
         alert("Spades has not been played yet. Please select another suit");
         return;
     }
