@@ -238,6 +238,7 @@ function change_pic() {
         alert("Spades has not been played yet. Please select another suit");
         return;
     }
+    $p.style = 'inline-block';
 	$p.innerHTML="You played the " + human_hand[output].value + " of "  + human_hand[output].suit;
 }
 
@@ -246,6 +247,7 @@ function displayCompCard() {
     const $c = document.querySelector("#compHandDisplay");
     let index = getComputerCard(human_hand[output].value, human_hand[output].suit);
     compCard = computer_hand[index];
+    $c.style = 'inline-block';
     $c.innerHTML="The Computer played the " + computer_hand[index].value + " of "  + computer_hand[index].suit;
     document.querySelector("#playerHandDropdown").disabled = true;
 }
