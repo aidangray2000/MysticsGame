@@ -247,6 +247,9 @@ function displayCompCard() {
     const $c = document.querySelector("#compHandDisplay");
     let index = getComputerCard(human_hand[output].value, human_hand[output].suit);
     compCard = computer_hand[index];
+    if(compCard.suit == "Spades") {
+        hasSpadesPlayed = true;
+    }
     $c.style = 'inline-block';
     $c.innerHTML="The Computer played the " + computer_hand[index].value + " of "  + computer_hand[index].suit;
     document.querySelector("#playerHandDropdown").disabled = true;
@@ -255,7 +258,11 @@ function displayCompCard() {
 //decides who won the trick and checks to see if scoore threshold has been reached
 function gameLogic() {
     if(compCard.suit != humanCard.suit) {
-        humanPoints += 10;
+        if(compCard.suit = "Spades") {
+            compPoints += 10;
+        } else {
+            humanPoints += 10;
+        }
     } else {
         if(compCard.num > humanCard.num) {
             compPoints += 10;
