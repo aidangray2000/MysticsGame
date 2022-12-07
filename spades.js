@@ -188,7 +188,7 @@ function populateDropdown(){
     var $myDD = $("#playerHandDropdown");
     
     $myDD.empty()
-
+    $myDD.append("<option value=\"\" disabled selected>--Hand--</option>");   
     for (var i = 0; i<human_hand.length; i++){
 	// let value = human_hand[i].value+human_hand[i].suit;
     $myDD.append("<option value='"+ i +"'>"+human_hand[i].value + " of " + human_hand[i].suit + "</option>");   
@@ -204,7 +204,7 @@ function populateDropdown(){
 function getComputerCard(value, suit) {
     let highest = 0;
     let index = 0;
-    for(let i = 0; i < 13; i++) {
+    for(let i = 0; i < computer_hand.length; i++) {
         if(computer_hand[i].suit == suit) {
             if(highest < computer_hand[i].num) {
                 highest = computer_hand[i].num;
@@ -301,5 +301,5 @@ function handEnd() {
 
 //game end function (hard reset)
 function gameEnd() {
-
+    window.location.reload();
 }
