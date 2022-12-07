@@ -258,11 +258,7 @@ function displayCompCard() {
 //decides who won the trick and checks to see if scoore threshold has been reached
 function gameLogic() {
     if(compCard.suit != humanCard.suit) {
-        if(compCard.suit = "Spades") {
-            compPoints += 10;
-        } else {
-            humanPoints += 10;
-        }
+        humanPoints += 10;
     } else {
         if(compCard.num > humanCard.num) {
             compPoints += 10;
